@@ -53,3 +53,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "devise"
+# routesやカラムを可視化するgem
+# モデルのカラムを可視化"bundle exec annotate"
+# routeを可視化"bundle exec annotate --routes"
+gem "annotate"
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
