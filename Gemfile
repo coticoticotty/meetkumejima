@@ -60,3 +60,7 @@ gem "annotate"
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+
+group :production do
+  gem 'pg'
+end
