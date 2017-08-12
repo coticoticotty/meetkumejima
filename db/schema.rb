@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722153737) do
+ActiveRecord::Schema.define(version: 20170729044442) do
+
+  create_table "chatboxes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "tour_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tour_id"], name: "index_chatboxes_on_tour_id", using: :btree
+    t.index ["user_id"], name: "index_chatboxes_on_user_id", using: :btree
+  end
+
+  create_table "tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "title"
+    t.string   "duration"
+    t.string   "price"
+    t.string   "tour_image"
+    t.string   "category"
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tours_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "", null: false
@@ -36,4 +59,7 @@ ActiveRecord::Schema.define(version: 20170722153737) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "chatboxes", "tours"
+  add_foreign_key "chatboxes", "users"
+  add_foreign_key "tours", "users"
 end

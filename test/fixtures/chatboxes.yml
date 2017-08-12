@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: chatboxes
+#
+#  id         :integer          not null, primary key
+#  message    :string(255)
+#  user_id    :integer
+#  tour_id    :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyString
+  user: one
+  tour: one
+
+two:
+  message: MyString
+  user: two
+  tour: two

@@ -29,6 +29,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  # 通常サインアップ時のuid用、Facebook OAuth認証時のemail用にuuidな文字列を生成
+  def self.create_unique_string
+    SecureRandom.uuid
+  end
          
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
@@ -37,7 +42,7 @@ class User < ApplicationRecord
                          provider: auth.provider,
                          uid: auth.uid,
                          email: auth.info.email,
-                         image: auth.info.emage,
+                         image: auth.info.image,
                          password: Devise.friendly_token[0,20])
     end
     user
@@ -56,4 +61,7 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+  
+  has_many :tours
+  has_many :chatboxes
 end

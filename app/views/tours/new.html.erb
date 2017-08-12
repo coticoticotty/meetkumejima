@@ -1,0 +1,45 @@
+<div class="text-center">
+  <h1>ツアーを作成する</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(@tour) do |f| %>
+    
+    <%= render "layouts/error_messages", model: f.object %>
+
+      <div class="form-group">
+        <%= f.label :title, 'ツアータイトル' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :content, 'ツアー内容' %>
+        <%= f.text_area :content, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :duration, '所要時間' %>
+        <%= f.text_field :duration, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price, '料金' %>
+        <%= f.text_field :price, class: 'form-control' %>
+      </div>
+      
+      <div class= "form-group">
+        <%= f.label :tour_image, "ツアー画像" %>
+        <%= f.file_field :tour_image %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :category, "カテゴリー" %>
+        <%= f.select :category, [["遊ぶ", "遊ぶ"], ["学ぶ", "学ぶ"], ["くつろぐ", "くつろぐ"], ["食べる", "食べる"], ["その他", "その他"]] ,class:"form-control" %>
+      </div>
+
+      <%= f.submit 'ツアー登録', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

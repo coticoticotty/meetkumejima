@@ -64,3 +64,10 @@ gem 'omniauth-twitter'
 group :production do
   gem 'pg'
 end
+
+gem 'pry-byebug', group: :development
+
+gem "kaminari"
+
+gem 'carrierwave'
+gem 'rmagick'

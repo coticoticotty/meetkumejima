@@ -1,0 +1,19 @@
+<% if tours %>
+  <div class="row">
+    <% tours.each do |tour| %>
+      <div class="tour">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <img src="<%= tour.tour_image %>" alt="" >
+            </div>
+            <div class="panel-body">
+              <p class="tour-title"><%= link_to tour.title, tour %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= paginate tours %>
+  </div>
+<% end %>

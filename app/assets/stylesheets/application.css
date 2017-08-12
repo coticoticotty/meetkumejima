@@ -32,3 +32,24 @@ footer {
   margin-top: 5px;
   height: 40px;
 }
+
+/* tour */
+.tour .panel-body {
+  height: 70px;
+}
+
+.tour .panel-heading {
+  height: 250px;
+}
+
+.tour .panel-heading img {
+  height: 100%;
+  max-width: 100%;
+}
+
+p.tour-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

@@ -275,6 +275,10 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth
   # API key
-  config.omniauth :facebook, "1147777528700654", "955626c80d0ffbcb2157a777d84c6e22"
+  if Rails.env.production?  
+  config.omniauth :facebook, "1147777528700654", "955626c80d0ffbcb2157a777d84c6e22", :image_size => 'large'
   config.omniauth :twitter,  "FZKY2dRhJ7reK3uuMhv55XPgS", "pz3xFHG00vNqjVHnixx12VpwsuvPDUIsCzKWB4PkFA6ddNfAS6"
+  else
+  config.omniauth :facebook, "128582747744212", "d24cf4b2b80e0eb961763738901c833b", :image_size => 'large'
+  end
 end
