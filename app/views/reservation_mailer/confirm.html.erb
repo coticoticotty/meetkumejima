@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
   </head>
   <body>
-    <p>お問い合わせありがとうございました。以下のツアーの予約を承りました。後ほど、ツアー主催者から連絡が参りますので、よろしくお願い致します。</p>
-    <p>ご予約確認
+    <p>1件予約がありました</p>
+    <p>ご予約内容
 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝<br>
+ツアーホスト：<%= @host.name %>
 ツアータイトル：<%= @tour.title %><br>
+価格：<%= @tour.price %><br>
 お名前: <%= @reservation.name %><br>
 メールアドレス: <%= @reservation.email %><br>
 人数: <%= @reservation.number %><br>

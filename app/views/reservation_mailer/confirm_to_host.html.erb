@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <p><%= @reservation.name %>様から予約がありました。<br>
+ツアー名：<%= @tour.title %><br>
+お名前：<%= @reservation.name %><br>
+メールアドレス: <%= @reservation.email %><br>
+人数: <%= @reservation.number %><br>
+ご希望日時：<%= @reservation.date %><br>
+問い合わせ内容:<br>
+<%= @reservation.message %><br>
+<br>
+上記のメールアドレスに連絡し、日程調整、集合時間、詳細などご連絡をよろしくお願い致します。
+</body>
+</html>

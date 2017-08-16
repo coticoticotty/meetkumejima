@@ -15,7 +15,7 @@ class ReservationController < ApplicationController
       render :action => "confirm"
     else
       # 間違いがある場合、問い合わせページを再表示
-      rendr :action => "index"
+      render :action => "index"
     end
   end
   
@@ -27,6 +27,8 @@ class ReservationController < ApplicationController
     #問い合わせ内容をメール送信
     @reservation = Reservation.new(reservation_params)
     ReservationMailer.confirm_to_guest(@reservation, @tour).deliver
+    ReservationMailer.confirm_to_host(@reservation, @host, @tour).deliver
+    ReservationMailer.confirm(@reservation, @host, @tour).deliver
 
     format.html #{ redirect_to reservation_thanks_url, notice: 'Post was successfully created.' }
     format.json { render :show, status: :created, location: @reservation }
