@@ -276,9 +276,9 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth
   # API key
   if Rails.env.production?  
-  config.omniauth :facebook, "1147777528700654", "955626c80d0ffbcb2157a777d84c6e22", :image_size => 'large'
-  config.omniauth :twitter,  "FZKY2dRhJ7reK3uuMhv55XPgS", "pz3xFHG00vNqjVHnixx12VpwsuvPDUIsCzKWB4PkFA6ddNfAS6"
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID_DEV'], ENV['FACEBOOK_APP_SECRET_DEV'], :image_size => 'large'
+  config.omniauth :twitter,  ENV['TWITTER_APP_ID_DEV'], ENV['TWITTER_APP_SECRET_DEV']
   else
-  config.omniauth :facebook, "128582747744212", "d24cf4b2b80e0eb961763738901c833b", :image_size => 'large'
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], :image_size => 'large'
   end
 end
