@@ -1,0 +1,39 @@
+<div class="text-center">
+  <h1>ツアーを予約する</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+      <h3 class="panel-title">ツアー名</h2>
+      <%= @tour.title %>
+    <%= form_for(@reservation, :url => reservation_confirm_tour_path) do |f| %>
+    
+    <%= render "layouts/error_messages", model: f.object %>
+
+      <div class="form-group">
+        <%= f.label :name, 'お名前' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :number, '人数' %>
+        <%= f.select :number, [["1名", "1名"], ["2名", "2名"], ["3名", "3名"], ["4名", "4名"], ["5名", "5名"], ["6名", "6名"], ["7名以上", "7名以上"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :date, 'ご希望日時' %>
+        <%= f.text_field :date, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :message, "メッセージ" %>
+        <%= f.text_area :message, class:"form-control" %>
+      </div>
+
+      <%= f.submit '内容を確認する', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

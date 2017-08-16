@@ -1,0 +1,31 @@
+<div class="text-center">
+  <h1>内容確認</h1>
+</div>
+
+<div class="row">
+      <h3 class="panel-title">ツアー名</h2>
+      <p><%= @tour.title %></p>
+
+    <%= form_for(@reservation, :url => reservation_thanks_tour_path) do |f| %>
+
+      <h3 class="panel-title">お名前</h2>
+      <%= f.hidden_field :name %>
+      <p><%= @reservation.name %></p>
+      <h3 class="panel-title">メールアドレス</h2>
+      <%= f.hidden_field :email %>
+      <p><%= @reservation.email %></p>
+      <h3 class="panel-title">人数</h2>
+      <%= f.hidden_field :number %>
+      <p><%= @reservation.number %></p>
+    
+      <h3 class="panel-title">ご希望日時</h2>
+      <%= f.hidden_field :date %>
+      <p><%= @reservation.date %></p>
+
+      <h3 class="panel-title">メッセージ</h2>
+      <%= f.hidden_field :message %>
+      <p><%= @reservation.message %></p>
+
+      <%= f.submit '送信', class: 'btn btn-primary btn-block' %>
+    <% end %>
+</div>

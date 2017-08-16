@@ -36,6 +36,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'toppages#index'
   resources :users, only: [:show]
-  resources :tours
-  resources :chatboxes, only: [:index, :create, :destroy]
+  resources :tours do
+    member do
+      ##### 問い合わせフォーム
+      get 'reservation' => 'reservation#index' 
+      get 'reservation/confirm' => redirect("/reservation")
+      get 'reservation/thanks' => redirect("/reservation")
+      ##### 問い合わせ確認画面
+      post 'reservation/confirm' => 'reservation#confirm'
+      ##### 問い合わせ完了画面
+      post 'reservation/thanks' => 'reservation#thanks'
+    end
+  end
 end
