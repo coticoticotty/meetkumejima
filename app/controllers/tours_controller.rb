@@ -44,7 +44,7 @@ class ToursController < ApplicationController
   def destroy
     @tour.destroy
     flash[:success] = "ツアーを削除しました。"
-    redirect_to user_url
+    redirect_to user_url(current_user)
   end
   
   private

@@ -280,5 +280,6 @@ Devise.setup do |config|
   config.omniauth :twitter,  ENV['TWITTER_APP_ID_DEV'], ENV['TWITTER_APP_SECRET_DEV']
   else
   config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], :image_size => 'large'
+  config.omniauth :twitter,  ENV['TWITTER_APP_ID_DEV'], ENV['TWITTER_APP_SECRET_DEV']
   end
 end

@@ -23,16 +23,13 @@ class ReservationController < ApplicationController
   def thanks
     @tour = Tour.find(params[:id])
     @host = User.find(@tour.user_id)
-    respond_to do |format|
     #問い合わせ内容をメール送信
     @reservation = Reservation.new(reservation_params)
     ReservationMailer.confirm_to_guest(@reservation, @tour).deliver
     ReservationMailer.confirm_to_host(@reservation, @host, @tour).deliver
     ReservationMailer.confirm(@reservation, @host, @tour).deliver
 
-    format.html #{ redirect_to reservation_thanks_url, notice: 'Post was successfully created.' }
-    format.json { render :show, status: :created, location: @reservation }
-    end
+    redirect_to reservation_thanks_tour_url, notice: 'Post was successfully created.'
   end
   
   def reservation_params
