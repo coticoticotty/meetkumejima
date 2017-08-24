@@ -36,10 +36,11 @@
 
       <div class="form-group">
         <%= f.label :category, "カテゴリー" %>
-        <%= f.select :category, [["遊ぶ", "遊ぶ"], ["学ぶ", "学ぶ"], ["くつろぐ", "くつろぐ"], ["食べる", "食べる"], ["その他", "その他"]] ,class:"form-control" %>
-     </div>
-
+        <%= f.select :category, [["#{categoryname['1']}", "1"], ["#{categoryname['2']}", "2"], ["#{categoryname['3']}", "3"], ["#{categoryname['4']}", "4"], ["#{categoryname['5']}", "5"]] %>
+      </div>
+      <div class="actions">
       <%= f.submit '保存', class: 'btn btn-primary btn-block' %>
+      </div>
     <% end %>
     <%= link_to "ツアーに戻る", tour_url %>
   </div>

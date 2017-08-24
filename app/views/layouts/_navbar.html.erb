@@ -1,33 +1,46 @@
 <header>
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Meetくめじま</a>
-      </div>
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <% if user_signed_in? %>
-            <li><%= link_to "ツアーを作る", new_tour_path %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "マイページ", user_path(current_user) %></li>
-                <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "島人登録", new_user_registration_path %></li>
-            <li><%= link_to "島人ログイン", new_user_session_path %></li>
-            <li><%= link_to "FBで新規登録/ログイン", user_facebook_omniauth_authorize_path %></li>
+ <!-- Site Name -->
+<div class="sitename">
+  <div class="container">
+    <a href="/">Meetくめじま</a>
+  </div>
+</div>
+ 
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"data-toggle="collapse"data-target="#navbarEexample10">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		
+		<div class="collapse navbar-collapse" id="navbarEexample10">
+			<ul class="nav navbar-nav">
+        <li><%= link_to "#{categoryname['1']}", category_url(1) %></li>
+        <li><%= link_to "#{categoryname['2']}", category_url(2) %></li>
+        <li><%= link_to "#{categoryname['3']}", category_url(3) %></li>
+        <li><%= link_to "#{categoryname['4']}", category_url(4) %></li>
+        <li><%= link_to "#{categoryname['5']}", category_url(5) %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li><%= link_to "ツアーを作る", new_tour_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to "FBで新規登録/ログイン", user_facebook_omniauth_authorize_path %></li>
         <% end %>
-        </ul>
-      </div>
+      </ul>
     </div>
-  </nav>
+	</div>
+</nav>
 </header>

@@ -14,10 +14,21 @@
  *= require_self
  */
 
+/* navbar*/
+.sitename{
+margin:15px 0 15px;
+}
+
+.sitename a{
+font-size: 1.6em;
+color: inherit;
+}
+
 /* body */
 body {
   background: #f5f5f5;
 }
+
 footer {
   background: #a9a9a9;
   margin-top: 40px;

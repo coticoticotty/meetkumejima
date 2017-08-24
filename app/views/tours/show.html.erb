@@ -1,5 +1,5 @@
-<div class="row">
-  <aside class="col-xs-4">
+<div class="row tour-wrapper">
+  <aside class="col-md-4">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title"><%= @user.name %></h3>
@@ -10,33 +10,39 @@
       </div>
     </div>
   </aside>
-  <div class="col-xs-8">
-    <div class="panel panel-default">
-      <%= form_for(@tour) do |f| %>
-      <%= f.hidden_field :title %>
-      <h1><%= @tour.title %></h1>
-      <div class="panel-body">
-        <img class="media-object img-rounded img-responsive" src="<%= @tour.tour_image %>" alt="">
+  <div class="col-md-8">
+    <div class="tour-main panel panel-default">
+      <div class="panel panel-default">
+        <%= form_for(@tour) do |f| %>
+        <%= f.hidden_field :title %>
+        <h2><%= @tour.title %></h2>
+        <img class="media-object img-responsive" src="<%= @tour.tour_image %>" alt="">
       </div>
-      <h3 class="panel-title">ツアー内容</h2>
-      <%= f.hidden_field :content %>
-      <p><%= @tour.content %></p>
-      <h3 class="panel-title">所要時間</h2>
-      <%= f.hidden_field :duration %>
-      <p><%= @tour.duration %></p>
-      <h3 class="panel-title">料金</h2>
-      <%= f.hidden_field :price %>
-      <p><%= @tour.price %></p>
-      <h3 class="panel-title">カテゴリー</h2>
-      <%= f.hidden_field :category %>
-      <p><%= @tour.category %></p>
+      <div>
+        <h3>ツアー概要</h3>
+        <div class="hr"></div>
+        <div class="content">
+          <%= f.hidden_field :content %>
+          <p><%= @tour.content %></p>
+        </div>
+        <div>
+          <h3 class="panel-title">所要時間</h3>
+          <%= f.hidden_field :duration %>
+          <p><%= @tour.duration %></p>
+          <h3 class="panel-title">料金</h3>
+          <%= f.hidden_field :price %>
+          <p><%= @tour.price %></p>
+          <h3 class="panel-title">カテゴリー</h3>
+          <%= f.hidden_field :category %>
+          <p><%= categoryname["#{@tour.category}"] %></p>
+        </div>
+        <div class = "btn btn-info btn-lg text-center"><%= link_to "ツアーを予約",  reservation_tour_path(@tour) %></div>
+        <% if current_user == @user %>
+          <div class = "btn btn-info btn-lg text-center"><%= link_to "編集", edit_tour_path, tour: "@tour" %></div>
+          <div class = "btn btn-danger btn-lg text-center"><%= link_to "削除", @tour, method: :delete, data: { confirm: "本当に削除してよろしいですか？"} %></div>
+        <% end %>
+        <% end %>
+      </div>
     </div>
-    <div class = "btn btn-info btn-lg text-center"><%= link_to "ツアーを予約",  reservation_tour_path(@tour) %></div>
-    <% if current_user == @user %>
-    <div class = "btn btn-info btn-lg text-center"><%= link_to "編集", edit_tour_path, tour: "@tour" %></div>
-    <div class = "btn btn-danger btn-lg text-center"><%= link_to "削除", @tour, method: :delete, data: { confirm: "本当に削除してよろしいですか？"} %></div>
-    <% end %>
-    <% end %>
-
   </div>
 </div>

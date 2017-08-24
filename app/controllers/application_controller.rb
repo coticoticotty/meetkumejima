@@ -12,4 +12,6 @@ class ApplicationController < ActionController::Base
     #edit用ストロングパラメータ
     devise_parameter_sanitizer.permit(:account_update, keys: [:name, :introduction, :affiliation, :address])
   end
+  
+  include ToursHelper
 end
