@@ -22,9 +22,9 @@ class Tour < ApplicationRecord
   validates :title, presence: true, length: { maximum: 50 }
   validates :content, presence: true
   validates :duration, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 #  validates :tour_image, presence: true
-#  validates :category, presence: true
+  validates :category, presence: true
   
   mount_uploader :tour_image, ImageUploader
 end

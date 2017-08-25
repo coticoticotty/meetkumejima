@@ -72,3 +72,6 @@ gem "kaminari"
 gem 'carrierwave'
 gem 'rmagick'
 gem 'dotenv-rails'
+
+gem 'cloudinary'
+gem 'carrierwave'

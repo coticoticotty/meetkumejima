@@ -31,7 +31,7 @@
           <p><%= @tour.duration %></p>
           <h3 class="panel-title">料金</h3>
           <%= f.hidden_field :price %>
-          <p><%= @tour.price %></p>
+          <p><%= @tour.price %>円</p>
           <h3 class="panel-title">カテゴリー</h3>
           <%= f.hidden_field :category %>
           <p><%= categoryname["#{@tour.category}"] %></p>

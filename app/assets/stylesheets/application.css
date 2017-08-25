@@ -16,12 +16,30 @@
 
 /* navbar*/
 .sitename{
-margin:15px 0 15px;
+margin:10px 0 10px;
 }
 
 .sitename a{
 font-size: 1.6em;
-color: inherit;
+color: #70bdd2;
+}
+
+.navbar .nav li a {
+color: #fff;
+font-weight: bold;
+text-align: center;
+}
+
+.navbar .nav li a.fb-button {
+  display: inline-block;
+  margin: 10px 10px; 
+  padding: 6px 10px;
+  border: solid 2px #fff;
+  border-radius: 5px;
+}
+
+.navbar .nav li a.fb-button:hover {
+  border-color: #000;
 }
 
 /* body */
@@ -34,33 +52,15 @@ footer {
   margin-top: 40px;
 }
 
+.wrapper {
+  width: 900px;
+}
 /* navbar */
 .navbar {
-  background-color: #87ceeb;
+  background-color: #70bdd2;
 }
 
 .navbar-header img {
   margin-top: 5px;
   height: 40px;
-}
-
-/* tour */
-.tour .panel-body {
-  height: 70px;
-}
-
-.tour .panel-heading {
-  height: 250px;
-}
-
-.tour .panel-heading img {
-  height: 100%;
-  max-width: 100%;
-}
-
-p.tour-title {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
 }

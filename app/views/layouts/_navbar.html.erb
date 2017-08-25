@@ -37,7 +37,7 @@
           </ul>
         </li>
         <% else %>
-        <li><%= link_to "FBで新規登録/ログイン", user_facebook_omniauth_authorize_path %></li>
+        <li><%= link_to "ツアーを作る(Facebookで登録/ログイン)", user_facebook_omniauth_authorize_path, class: 'fb-button' %></li>
         <% end %>
       </ul>
     </div>
