@@ -57,7 +57,7 @@ Rails.application.routes.draw do
       ##### 問い合わせフォーム
       get 'reservation' => 'reservation#index' 
       get 'reservation/confirm' => redirect("/reservation")
-      get 'reservation/thanks'=> redirect("/reservation")
+      #get 'reservation/thanks'=> redirect("/reservation")
       ##### 問い合わせ確認画面
       post 'reservation/confirm' => 'reservation#confirm'
       ##### 問い合わせ完了画面

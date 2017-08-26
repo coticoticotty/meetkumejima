@@ -29,7 +29,8 @@ class ReservationController < ApplicationController
     ReservationMailer.confirm_to_host(@reservation, @host, @tour).deliver
     ReservationMailer.confirm(@reservation, @host, @tour).deliver
 
-    redirect_to reservation_thanks_tour_url, notice: 'Post was successfully created.'
+    #redirect_to reservation_thanks_tour_url, notice: 'Post was successfully created.'
+    render :action => 'thanks'
   end
   
   def reservation_params
